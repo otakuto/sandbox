@@ -12,5 +12,5 @@ jobs:
           dism /online /get-features
           Get-WindowsCapability -Online
           ls
-          #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+          Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
           #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
