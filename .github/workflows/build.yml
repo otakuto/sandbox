@@ -9,6 +9,7 @@ jobs:
       - name: main
         run: |
           Start-Process powershell -Verb runAs
+          dism /online /get-features
           Get-WindowsCapability -Online
           ls
           #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
