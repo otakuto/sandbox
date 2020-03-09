@@ -16,9 +16,7 @@ jobs:
           powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
           New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
           #Start-Service sshd
-      - name: a
-        run: |
-          ngrok http 49978
+          ngrok start admin ssh metrics
           tasklist
           netstat
           #dism /online /get-features
