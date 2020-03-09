@@ -7,8 +7,9 @@ jobs:
     Windows:
       runs-on: windows-2019
       steps:
-      - run: |
-        Get-WindowsCapability -Online
-        ls
-        #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
-        #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+        - name: main
+          run: |
+            Get-WindowsCapability -Online
+            ls
+            #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+            #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
