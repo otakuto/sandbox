@@ -14,9 +14,11 @@ jobs:
           Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files'
           cd 'C:/Program Files/OpenSSH-Win64'
           powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
-          #Start-Service sshd
           New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+          #Start-Service sshd
           tasklist
+          ipconfig
+          Invoke-WebRequest 'https://api.ipify.org?format=json'
           #dism /online /get-features
           #dism /online /get-capabilities
           #dism /online /Add-Capability /CapabilityName:OpenSSH.Client~~~~0.0.1.0
