@@ -12,8 +12,8 @@ jobs:
           Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
           Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files/OpenSSH'
           cd 'C:/Program Files/OpenSSH'
-          ./install-sshd.ps1
-          #powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+          #./install-sshd.ps1
+          powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
           #powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
           New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
           #dism /online /get-features
