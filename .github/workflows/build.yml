@@ -9,3 +9,4 @@ jobs:
       steps:
         - run: |
           Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+          Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
