@@ -9,9 +9,9 @@ jobs:
       - name: main
         run: |
           Start-Process powershell -Verb runAs
-          dism /online /get-features
-          dism /online /get-capabilities
-          Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
-          Get-WindowsCapability -Online
-          Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
+          #dism /online /get-features
+          #dism /online /get-capabilities
+          dism /online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0
+          #Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+          #Get-WindowsCapability -Online
           #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
