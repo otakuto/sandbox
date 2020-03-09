@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: main
         run: |
+          get-host
+          wget 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
           Start-Process powershell -Verb runAs
           wget 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
           Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files/OpenSSH'
