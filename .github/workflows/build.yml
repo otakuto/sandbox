@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: main
         run: |
+          #tasklist
+          netstat
           ssh -tt -R 80:localhost:8080 ssh.localhost.run
           #choco install ngrok.portable
           #Start-Process powershell -Verb runAs
@@ -19,8 +21,6 @@ jobs:
           #Start-Service sshd
           #npm install -g localtunnel
           #lt --port 8000
-          tasklist
-          netstat
           #dism /online /get-features
           #dism /online /get-capabilities
           #dism /online /Add-Capability /CapabilityName:OpenSSH.Client~~~~0.0.1.0
