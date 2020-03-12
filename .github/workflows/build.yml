@@ -9,7 +9,7 @@ jobs:
       - name: main
         run: |
           #tasklist
-          netstat
+          netstat -ano
           #choco install ngrok.portable
           #Start-Process powershell -Verb runAs
           Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
@@ -19,7 +19,7 @@ jobs:
           New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
           #sshd -p 22
           choco install bitvise-ssh-server -params '"/InstallLocation=C:\temp"'
-          netstat
+          netstat -ano
           ssh -o "StrictHostKeyChecking no" ssh.localhost.run
           ssh -R 22:localhost:22 ssh.localhost.run
           #Start-Service sshd
