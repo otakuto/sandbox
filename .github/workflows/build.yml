@@ -8,12 +8,12 @@ jobs:
     steps:
       - name: main
         run: |
-          ssh -h
           #choco install ngrok.portable
-          Start-Process powershell -Verb runAs
+          #Start-Process powershell -Verb runAs
           Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
           Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files'
           cd 'C:/Program Files/OpenSSH-Win64'
+          ssh -h
           powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
           New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
           #Start-Service sshd
