@@ -17,10 +17,10 @@ jobs:
           cd 'C:/Program Files/OpenSSH-Win64'
           powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
           New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
-          sshd -p 8080
+          sshd -p 22
           netstat
           ssh -o "StrictHostKeyChecking no" ssh.localhost.run
-          ssh -R 80:localhost:8080 ssh.localhost.run
+          ssh -R 22:localhost:22 ssh.localhost.run
           #Start-Service sshd
           #npm install -g localtunnel
           #lt --port 8000
