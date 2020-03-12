@@ -17,7 +17,8 @@ jobs:
           cd 'C:/Program Files/OpenSSH-Win64'
           powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
           New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
-          sshd -p 22
+          #sshd -p 22
+          choco install bitvise-ssh-server -params '"/InstallLocation=C:\temp"'
           netstat
           ssh -o "StrictHostKeyChecking no" ssh.localhost.run
           ssh -R 22:localhost:22 ssh.localhost.run
