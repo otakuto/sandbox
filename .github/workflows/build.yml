@@ -22,7 +22,8 @@ jobs:
           netstat -ano
           ssh -T -o "StrictHostKeyChecking no" ssh.localhost.run
           Start-Process -NoNewWindow python -m http.server
-          Start-Process -NoNewWindow ssh -T -R 80:localhost:8000 ssh.localhost.run
+          wget localhost:8000
+          #Start-Process -NoNewWindow ssh -T -R 80:localhost:8000 ssh.localhost.run
           netstat -ano
           Start-Sleep -s 600
           #Start-Service sshd
