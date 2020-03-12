@@ -10,18 +10,16 @@ jobs:
         run: |
           #tasklist
           netstat
-          ssh -o "StrictHostKeyChecking no" ssh.localhost.run
-          dism /online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0
-          net start gsw_sshd
-          New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
-          Start-Service sshd; ssh -R 80:localhost:49100 ssh.localhost.run
           #choco install ngrok.portable
           #Start-Process powershell -Verb runAs
-          #Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
-          #Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files'
-          #cd 'C:/Program Files/OpenSSH-Win64'
-          #powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
-          #New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+          Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
+          Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files'
+          cd 'C:/Program Files/OpenSSH-Win64'
+          powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+          New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+          Start-Service sshd; netstat
+          ssh -o "StrictHostKeyChecking no" ssh.localhost.run
+          ssh -R 80:localhost:49100 ssh.localhost.run
           #Start-Service sshd
           #npm install -g localtunnel
           #lt --port 8000
