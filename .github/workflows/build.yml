@@ -11,7 +11,7 @@ jobs:
           #tasklist
           netstat
           ssh -o "StrictHostKeyChecking no" ssh.localhost.run
-          ssh -tt -R 80:localhost:49100 ssh.localhost.run
+          ssh -R 80:localhost:49100 ssh.localhost.run
           #choco install ngrok.portable
           #Start-Process powershell -Verb runAs
           #Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
