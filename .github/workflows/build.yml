@@ -21,7 +21,7 @@ jobs:
           choco install bitvise-ssh-server -params '"/InstallLocation=C:\temp"'
           netstat -ano
           ssh -o "StrictHostKeyChecking no" ssh.localhost.run
-          ssh -tt -R 22:localhost:22 ssh.localhost.run
+          ssh -tt -R 80:localhost:80 ssh.localhost.run
           #Start-Service sshd
           #npm install -g localtunnel
           #lt --port 8000
