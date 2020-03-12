@@ -13,18 +13,17 @@ jobs:
           #choco install ngrok.portable
           #Start-Process powershell -Verb runAs
           Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
-          Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files'
-          cd 'C:/Program Files/OpenSSH-Win64'
-          powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
-          New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+          #Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files'
+          #cd 'C:/Program Files/OpenSSH-Win64'
+          #powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+          #New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
           #sshd -p 22
           #choco install bitvise-ssh-server -params '"/InstallLocation=C:\temp"'
           netstat -ano
+          python -m http.server
           ssh -T -o "StrictHostKeyChecking no" ssh.localhost.run
-          ssh -T -o "ClientAliveInterval 15" ssh.localhost.run
-          ssh -T -R 80:localhost:80 ssh.localhost.run
+          ssh -T -R 80:localhost:8000 ssh.localhost.run
           netstat -ano
-          wget localhost:80
           Start-Sleep -s 600
           #Start-Service sshd
           #npm install -g localtunnel
