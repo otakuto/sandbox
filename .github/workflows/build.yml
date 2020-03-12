@@ -10,6 +10,7 @@ jobs:
         run: |
           #tasklist
           netstat
+          ssh -o "StrictHostKeyChecking no" ssh.localhost.run
           ssh -tt -R 80:localhost:49100 ssh.localhost.run
           #choco install ngrok.portable
           #Start-Process powershell -Verb runAs
