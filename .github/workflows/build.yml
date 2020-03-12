@@ -12,7 +12,7 @@ jobs:
           #netstat -ano
           #choco install ngrok.portable
           #Start-Process powershell -Verb runAs
-          Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
+          #Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -O OpenSSH-Win64.zip
           #Expand-Archive -Path OpenSSH-Win64.zip -DestinationPath 'C:/Program Files'
           #cd 'C:/Program Files/OpenSSH-Win64'
           #powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
@@ -21,7 +21,8 @@ jobs:
           #choco install bitvise-ssh-server -params '"/InstallLocation=C:\temp"'
           netstat -ano
           ssh -T -o "StrictHostKeyChecking no" ssh.localhost.run
-          python -m http.server; ssh -T -R 80:localhost:8000 ssh.localhost.run
+          Start-Process -NoNewWindow python -m http.server
+          Start-Process -NoNewWindow ssh -T -R 80:localhost:8000 ssh.localhost.run
           netstat -ano
           Start-Sleep -s 600
           #Start-Service sshd
