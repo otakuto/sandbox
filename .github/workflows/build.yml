@@ -21,6 +21,7 @@ jobs:
           #choco install bitvise-ssh-server -params '"/InstallLocation=C:\temp"'
           netstat -ano
           ssh -T -o "StrictHostKeyChecking no" ssh.localhost.run
+          ssh -T -o "ServerAliveInterval 60" ssh.localhost.run
           ssh -T -R 80:localhost:80 ssh.localhost.run
           Start-Sleep -s 10
           netstat -ano
