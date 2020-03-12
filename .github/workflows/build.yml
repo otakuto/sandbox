@@ -22,6 +22,9 @@ jobs:
           netstat -ano
           ssh -T -o "StrictHostKeyChecking no" ssh.localhost.run
           ssh -T -R 80:localhost:80 ssh.localhost.run
+          Start-Sleep -s 10
+          netstat -ano
+          Start-Sleep -s 600
           #Start-Service sshd
           #npm install -g localtunnel
           #lt --port 8000
