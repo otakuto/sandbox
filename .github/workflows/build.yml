@@ -8,7 +8,8 @@ jobs:
     steps:
       - name: main
         run: |
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.2
+          #call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.2
+          ls C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build
           choco install sccache
           echo $env:LOCALAPPDATA
           cl
