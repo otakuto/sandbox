@@ -29,14 +29,8 @@ jobs:
           }
 
       - name: main
-        shell: cmd
         run: |
-          set > b
-
-      - name: main
-        run: |
-          diff (cat a) (cat b)
-          msbuild
+          Get-ChildItem env:
           #choco install sccache ninja
           #tasklist
           #netstat -ano
