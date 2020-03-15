@@ -9,7 +9,7 @@ jobs:
       - name: main
         run: |
           choco install sccache
-          echo %LOCALAPPDATA%
+          echo $env:LOCALAPPDATA
           #tasklist
           #netstat -ano
           #choco install ngrok.portable
