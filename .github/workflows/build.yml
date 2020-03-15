@@ -22,6 +22,7 @@ jobs:
       - name: main
         run: |
           echo edoten
+          echo *
           echo cmake ../ -G Ninja `
           -Djson-c_DIR='C:/vcpkg/installed/x64-windows-static/share/json-c/' `
           -DJSON-C_INCLUDE_DIR='C:/vcpkg/installed/x64-windows-static/include/json-c/' `
