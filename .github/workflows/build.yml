@@ -16,7 +16,8 @@ jobs:
         shell: cmd
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1
-          msbuild
+          lib.exe
+          lib
 
       - name: main
         run: |
