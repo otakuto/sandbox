@@ -13,8 +13,9 @@ jobs:
       #    set
 
       - name: main
+        shell: cmd
         run: |
-          cmd.exe /c 'call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1 && cmake --version && cl'
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1
           msbuild
 
       - name: main
