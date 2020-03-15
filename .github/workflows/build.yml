@@ -36,8 +36,7 @@ jobs:
       - name: main
         run: |
           diff (cat a) (cat b)
-          Get-Item -Path Env:* | Get-Member
-          #msbuild
+          msbuild
           #choco install sccache ninja
           #tasklist
           #netstat -ano
