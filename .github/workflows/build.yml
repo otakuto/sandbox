@@ -13,7 +13,7 @@ jobs:
 
       - name: main
         run: |
-          cmd /c "call 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat' -vcvars_ver=14.1 & cl"
+          cmd /c "call 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat' -vcvars_ver=14.1 && cl"
           echo edoten
           #tasklist
           #netstat -ano
