@@ -32,6 +32,7 @@ jobs:
       - name: main
         run: |
           Get-ChildItem env:
+          lib.exe
           #choco install sccache ninja
           #tasklist
           #netstat -ano
