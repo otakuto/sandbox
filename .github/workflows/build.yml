@@ -8,12 +8,7 @@ jobs:
     steps:
       - name: main
         run: |
-          ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\VC\" -R
-          #call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.2
-          choco install sccache
-          echo $env:LOCALAPPDATA
-          cl
-          lib
+          ls -R "C:\Program Files (x86)\Microsoft Visual Studio\2019\VC\"
           #tasklist
           #netstat -ano
           #choco install ngrok.portable
