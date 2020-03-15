@@ -25,6 +25,7 @@ jobs:
           Get-Content "$env:temp\vcvars.txt" | Foreach-Object {
             if ($_ -match "^(.*?)=(.*)$") {
               echo "::set-env name=$matches[1]::$matches[2]"
+              echo "set-env name=$matches[1]::$matches[2]"
             }
           }
 
