@@ -21,6 +21,11 @@ jobs:
 
       - name: main
         run: |
+          echo "::set-env name=action_state::yellow"
+
+      - name: main
+        run: |
+          echo $env:name
           echo edoten
           echo *
           echo cmake ../ -G Ninja `
