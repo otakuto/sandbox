@@ -6,11 +6,11 @@ jobs:
   Windows:
     runs-on: windows-2019
     steps:
-      #- name: main
-      #  shell: cmd
-      #  run: |
-      #    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1
-      #    set
+      - name: main
+        shell: cmd
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          set > a
 
       #- name: main
       #  shell: cmd
@@ -21,27 +21,21 @@ jobs:
 
       - name: main
         run: |
-          echo "::set-env name=action_state::yellow"
+          cmd.exe /c 'call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" && set > %temp%\vcvars.txt'
+          Get-Content "$env:temp\vcvars.txt" | Foreach-Object {
+            if ($_ -match "^(.*?)=(.*)$") {
+              echo "::set-env name=$matches[1]::$matches[2]"
+            }
+          }
 
       - name: main
         shell: cmd
         run: |
-          set
+          set > b
 
       - name: main
         run: |
-          echo $env:action_state
-          set
-          echo edoten
-          echo *
-          echo cmake ../ -G Ninja `
-          -Djson-c_DIR='C:/vcpkg/installed/x64-windows-static/share/json-c/' `
-          -DJSON-C_INCLUDE_DIR='C:/vcpkg/installed/x64-windows-static/include/json-c/' `
-          -DCMAKE_C_COMPILER=cl.exe `
-          -DCMAKE_CXX_COMPILER=cl.exe `
-          -DCMAKE_C_COMPILER_LAUNCHER=sccache.exe `
-          -DCMAKE_CXX_COMPILER_LAUNCHER=sccache.exe
-          #cmd.exe /c 'call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1 && cmake --version && cl'
+          diff (cat a) (cat b)
           #msbuild
           #choco install sccache ninja
           #tasklist
