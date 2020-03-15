@@ -10,6 +10,11 @@ jobs:
         shell: cmd
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1
+
+      - name: main
+        run: |
+          cmd /c "call 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat' -vcvars_ver=14.1 & cl"
+          echo edoten
           #tasklist
           #netstat -ano
           #choco install ngrok.portable
