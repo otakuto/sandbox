@@ -7,9 +7,9 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: main
+        shell: cmd
         run: |
-          "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1
-          ls -R "C:\Program Files (x86)\Microsoft Visual Studio\2019\"
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.1
           #tasklist
           #netstat -ano
           #choco install ngrok.portable
