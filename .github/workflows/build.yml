@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: main
         run: |
+          choco install sccache
+          echo %LOCALAPPDATA%
           #tasklist
           #netstat -ano
           #choco install ngrok.portable
@@ -19,13 +21,13 @@ jobs:
           #New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH SSH Server' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
           #sshd -p 22
           #choco install bitvise-ssh-server -params '"/InstallLocation=C:\temp"'
-          netstat -ano
-          ssh -T -o "StrictHostKeyChecking no" ssh.localhost.run
-          Start-Process -NoNewWindow python -m http.server
-          wget localhost:8000
+          #netstat -ano
+          #ssh -T -o "StrictHostKeyChecking no" ssh.localhost.run
+          #Start-Process -NoNewWindow python -m http.server
+          #wget localhost:8000
           #Start-Process -NoNewWindow ssh -T -R 80:localhost:8000 ssh.localhost.run
-          netstat -ano
-          Start-Sleep -s 600
+          #netstat -ano
+          #Start-Sleep -s 600
           #Start-Service sshd
           #npm install -g localtunnel
           #lt --port 8000
