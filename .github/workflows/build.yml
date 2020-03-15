@@ -24,8 +24,8 @@ jobs:
           cmd.exe /c 'call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat" && set > %temp%\vcvars.txt'
           Get-Content "$env:temp\vcvars.txt" | Foreach-Object {
             if ($_ -match "^(.*?)=(.*)$") {
-              echo "::set-env name="($matches[1] | out-string)"::"($matches[2] | out-string)
-              echo "set-env name="($matches[1] | out-string)"::"($matches[2] | out-string)
+              echo "::set-env name=($matches[1] | out-string)::($matches[2] | out-string)"
+              echo "set-env name=($matches[1] | out-string)::($matches[2] | out-string)"
             }
           }
 
